@@ -74,10 +74,13 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const Text("FCM Token:"),
-            Text(
-              _token ?? "Получение токена...",
-              textAlign: TextAlign.center,
-            ),
+            _token != null
+                ? SelectableText(
+                    _token ?? "Получение токена...",
+                    textAlign: TextAlign.center,
+                    style: const TextStyle(fontSize: 16),
+                  )
+                : const CircularProgressIndicator(),
           ],
         ),
       ),
